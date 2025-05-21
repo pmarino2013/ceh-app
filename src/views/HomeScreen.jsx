@@ -1,0 +1,41 @@
+import React from "react";
+
+const HomeScreen = () => {
+  return (
+    <div className="container">
+      <div className="row">
+        <div className="col text-center mb-5">
+          <h1 className="title-principal">CEH</h1>
+        </div>
+      </div>
+      <div className="row row-cols-2 row-cols-md-3 g-3">
+        <div class="col">
+          <div class="card card-ceh text-bg-dark mb-3">
+            <div class="card-header">GUARDIA</div>
+            <div class="card-body text-center mb-3">
+              <i className="fa fa-calendar fa-5x" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card card-ceh text-bg-dark mb-3">
+            <div class="card-header">HOSPITALES</div>
+            <div class="card-body text-center mb-3">
+              <i className="fa fa-hospital-o fa-5x" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card card-ceh text-bg-dark mb-3">
+            <div class="card-header">LISTA MÉDICOS</div>
+            <div class="card-body text-center mb-3">
+              <i className="fa fa-user-md fa-5x" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default HomeScreen;
