@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const HomeScreen = () => {
   return (
@@ -10,12 +11,14 @@ const HomeScreen = () => {
       </div>
       <div className="row row-cols-2 row-cols-md-3 g-3">
         <div className="col">
-          <div className="card card-ceh text-bg-dark mb-3">
-            <div className="card-header">GUARDIA</div>
-            <div className="card-body text-center mb-3">
-              <i className="fa fa-calendar fa-5x" aria-hidden="true"></i>
+          <Link to="/guardias" className="text-decoration-none">
+            <div className="card card-ceh text-bg-dark mb-3">
+              <div className="card-header">GUARDIA</div>
+              <div className="card-body text-center mb-3">
+                <i className="fa fa-calendar fa-5x" aria-hidden="true"></i>
+              </div>
             </div>
-          </div>
+          </Link>
         </div>
         <div className="col">
           <div className="card card-ceh text-bg-dark mb-3">
