@@ -13,8 +13,8 @@ const MenuApp = () => {
         <i className="fa fa-bars fa-2x" aria-hidden="true"></i>
       </span>
 
-      <Offcanvas show={show} onHide={handleClose}>
-        <Offcanvas.Header closeButton>
+      <Offcanvas  show={show} onHide={handleClose} >
+        <Offcanvas.Header  closeButton>
           <Offcanvas.Title className="title-principal">CEH</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
