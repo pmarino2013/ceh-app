@@ -20,10 +20,19 @@ const MenuApp = () => {
         </Offcanvas.Header>
         <Offcanvas.Body>
           <ul>
+            <li>
+              <Link className="nav-link" to="/" onClick={() => setShow(false)}>
+                <i className="fa fa-home" aria-hidden="true"></i> Inicio
+              </Link>
+            </li>
             <li>Perfil</li>
             <li>Sobre nosotros</li>
             <li>
-              <Link to="/login" onClick={() => setShow(false)}>
+              <Link
+                className="nav-link"
+                to="/login"
+                onClick={() => setShow(false)}
+              >
                 <i className="fa fa-sign-out" aria-hidden="true"></i> Cerrar
                 sesión
               </Link>

@@ -10,3 +10,12 @@ body{
 .card-ceh{
   border-color: #e1e2e6ff ;
 }
+
+.card-user{
+  & img{
+    width: 50%;
+  }
+  & a{
+    text-decoration: none;
+  }
+}
