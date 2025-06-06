@@ -14,7 +14,7 @@ const LoginScreen = () => {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
 
-  const agregarUserId = useStore((state) => state.agregarUserId);
+  const agregarUserId = useStore((state) => state.setUserId);
 
   useEffect(() => {
     localStorage.getItem("token");

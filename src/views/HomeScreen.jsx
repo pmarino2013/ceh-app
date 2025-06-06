@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 import useStore from "../store/store";
 import { getUsuario } from "../helpers/usuariosFetch";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const HomeScreen = () => {
   const navigate = useNavigate();
   const userId = useStore((state) => state.userId);
-  const [usuario, setUsuario] = useState(null);
+  const setUser = useStore((state) => state.agregarUser);
 
   useEffect(() => {
     if (userId) {
@@ -20,7 +20,8 @@ const HomeScreen = () => {
 
   const fetchUser = async () => {
     const user = await getUsuario(userId);
-    setUsuario(user.usuario);
+
+    setUser(user.usuario);
     console.log(user);
   };
 
@@ -29,7 +30,6 @@ const HomeScreen = () => {
       <div className="row">
         <div className="col text-center mb-5">
           <h1 className="title-principal">CEH</h1>
-          <small>{usuario?.nombre}</small>
         </div>
       </div>
       <div className="row row-cols-2 row-cols-md-3 g-3">
