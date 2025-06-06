@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 // import HomeScreen from './views/HomeScreen'
-import MenuApp from "./components/MenuApp";
+// import MenuApp from "./components/MenuApp";
 import LoginScreen from "./views/LoginScreen";
 import RoutesPrimary from "./routes/RoutesPrimary";
 import ProtectedRoutes from "./routes/ProtectedRoutes";
@@ -8,7 +8,6 @@ import ProtectedRoutes from "./routes/ProtectedRoutes";
 const App = () => {
   return (
     <BrowserRouter>
-      <MenuApp />
       <Routes>
         <Route
           path="/*"

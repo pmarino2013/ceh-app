@@ -16,4 +16,21 @@ const getUsuarios = async () => {
   }
 };
 
-export { getUsuarios };
+const getUsuario = async (id) => {
+  const token = JSON.parse(localStorage.getItem("token")) || null;
+  try {
+    const resp = await fetch(`${url}/${id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "x-token": token,
+      },
+    });
+    const data = await resp.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export { getUsuarios, getUsuario };

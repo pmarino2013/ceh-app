@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { logIn } from "../helpers/loginAuth";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import useStore from "../store/store";
 const LoginScreen = () => {
   const navigate = useNavigate();
   const {
@@ -13,6 +14,8 @@ const LoginScreen = () => {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
 
+  const agregarUserId = useStore((state) => state.agregarUserId);
+
   useEffect(() => {
     localStorage.getItem("token");
   }, []);
@@ -20,8 +23,12 @@ const LoginScreen = () => {
   const onSubmit = async (data) => {
     setLoading(true);
     const respuesta = await logIn(data);
+
     if (respuesta?.token) {
       localStorage.setItem("token", JSON.stringify(respuesta.token));
+
+      agregarUserId(respuesta.usuario);
+
       navigate("/");
     } else {
       setMessage(respuesta.msg);

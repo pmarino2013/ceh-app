@@ -19,7 +19,7 @@ const AdminGuardiasScreen = () => {
 
   const traerDatosUsuarios = async () => {
     const respuesta = await getUsuarios();
-    console.log(respuesta.usuarios);
+
     setUsuarios(respuesta.usuarios);
   };
 
