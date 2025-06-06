@@ -16,4 +16,22 @@ const getGuardias = async () => {
   }
 };
 
-export { getGuardias };
+const postGuardias = async (guardia) => {
+  const token = JSON.parse(localStorage.getItem("token")) || null;
+  try {
+    const resp = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-token": token,
+      },
+      body: JSON.stringify(guardia),
+    });
+    const data = await resp.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export { getGuardias, postGuardias };

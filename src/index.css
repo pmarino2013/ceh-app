@@ -15,7 +15,8 @@ body{
   & img{
     width: 50%;
   }
-  & a{
+   
+}
+a{
     text-decoration: none;
   }
-}

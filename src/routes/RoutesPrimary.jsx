@@ -2,12 +2,15 @@ import { Routes, Route } from "react-router-dom";
 import HomeScreen from "../views/HomeScreen";
 import GuardiasScreen from "../views/GuardiasScreen";
 import UsuariosScreen from "../views/UsuariosScreen";
+import AdminGuardiasScreen from "../views/AdminGuardiasScreen";
 
 const RoutesPrimary = () => {
   return (
     <Routes>
       <Route path="/" element={<HomeScreen />} />
       <Route path="/guardias" element={<GuardiasScreen />} />
+
+      <Route path="/admin/guardias" element={<AdminGuardiasScreen />} />
       <Route path="/usuarios" element={<UsuariosScreen />} />
     </Routes>
   );
