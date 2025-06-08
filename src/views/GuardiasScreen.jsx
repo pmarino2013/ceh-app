@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getGuardias } from "../helpers/guardiasFetch";
+import useStore from "../store/store";
 
 const GuardiasScreen = () => {
+  const user = useStore((state) => state.user);
   const [guardias, setGuardias] = useState([]);
   useEffect(() => {
     fetchGuardias();
@@ -22,13 +24,16 @@ const GuardiasScreen = () => {
           <h1>Guardias </h1>
         </div>
       </div>
-      <div className="row">
-        <div className="col mb-2">
-          <Link to="/admin/guardias" className="btn btn-primary">
-            Ir a Administración de Guardias
-          </Link>
+      {user?.rol === "ADMIN_ROLE" && (
+        <div className="row">
+          <div className="col mb-2">
+            <Link to="/admin/guardias" className="btn btn-primary">
+              Ir a Administración de Guardias
+            </Link>
+          </div>
         </div>
-      </div>
+      )}
+
       <div className="row">
         <div className="col ">
           {guardias.length > 0 ? (
