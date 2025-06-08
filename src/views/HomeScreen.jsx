@@ -28,7 +28,7 @@ const HomeScreen = () => {
   return (
     <div className="container">
       <div className="row">
-        <div className="col text-center mb-5">
+        <div className="col text-center my-5">
           <h1 className="title-principal">CEH</h1>
         </div>
       </div>

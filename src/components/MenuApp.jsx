@@ -9,7 +9,7 @@ const MenuApp = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   return (
-    <div className="fixed-top">
+    <div className="fixed-top menu-ceh">
       <span onClick={handleShow}>
         <i className="fa fa-bars fa-2x" aria-hidden="true"></i>
       </span>
