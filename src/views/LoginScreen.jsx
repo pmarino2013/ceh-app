@@ -17,7 +17,7 @@ const LoginScreen = () => {
   const agregarUserId = useStore((state) => state.setUserId);
 
   useEffect(() => {
-    localStorage.getItem("token");
+    localStorage.removeItem("token");
   }, []);
 
   const onSubmit = async (data) => {
