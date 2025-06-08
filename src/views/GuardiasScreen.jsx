@@ -6,15 +6,32 @@ import useStore from "../store/store";
 const GuardiasScreen = () => {
   const user = useStore((state) => state.user);
   const [guardias, setGuardias] = useState([]);
+  const [filterFechas, setFilterFechas] = useState([]);
+  const [fecha, setFecha] = useState("");
   useEffect(() => {
     fetchGuardias();
   }, []);
 
+  useEffect(() => {
+    if (fecha) {
+      SearchFecha();
+    } else {
+      setFilterFechas(guardias);
+    }
+  }, [fecha]);
+
   const fetchGuardias = async () => {
     const respuesta = await getGuardias();
-    console.log(respuesta);
     respuesta.guardias.sort((a, b) => a.SEMANA.localeCompare(b.SEMANA));
     setGuardias(respuesta.guardias);
+    setFilterFechas(respuesta.guardias);
+  };
+
+  const SearchFecha = () => {
+    const filteredGuardias = guardias.filter((guardia) =>
+      guardia.SEMANA.includes(fecha)
+    );
+    setFilterFechas(filteredGuardias);
   };
 
   return (
@@ -33,11 +50,24 @@ const GuardiasScreen = () => {
           </div>
         </div>
       )}
-
+      <div className="row my-3">
+        <div className="col">
+          <form>
+            <input
+              type="month"
+              name="fecha"
+              id="fecha"
+              className="form-control"
+              value={fecha}
+              onChange={(e) => setFecha(e.target.value)}
+            />
+          </form>
+        </div>
+      </div>
       <div className="row">
         <div className="col ">
-          {guardias.length > 0 ? (
-            guardias.map((guardia) => (
+          {filterFechas.length > 0 ? (
+            filterFechas.map((guardia) => (
               <div className="card mb-3" key={guardia._id}>
                 <div className="card-header">Semana: {guardia.SEMANA}</div>
                 <div className="card-body">
@@ -62,24 +92,6 @@ const GuardiasScreen = () => {
               No hay guardias asignadas.
             </div>
           )}
-          {/* <table className="table table-striped">
-            <thead className="table-dark">
-              <tr>
-                <th>Semana</th>
-                <th>Nombre</th>
-                <th>Contacto</th>
-              </tr>
-            </thead>
-            <tbody>
-              {guardias.map((guardia) => (
-                <tr key={guardia._id}>
-                  <td>{guardia.SEMANA}</td>
-                  <td>{guardia.ASIGNADO.nombre}</td>
-                  <td>{guardia.ASIGNADO.contacto}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table> */}
         </div>
       </div>
     </div>
