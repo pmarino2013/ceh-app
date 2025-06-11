@@ -22,7 +22,6 @@ const HomeScreen = () => {
     const user = await getUsuario(userId);
 
     setUser(user.usuario);
-    console.log(user);
   };
 
   return (
