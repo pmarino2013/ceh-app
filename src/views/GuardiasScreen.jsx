@@ -8,6 +8,7 @@ const GuardiasScreen = () => {
   const [guardias, setGuardias] = useState([]);
   const [filterFechas, setFilterFechas] = useState([]);
   const [fecha, setFecha] = useState("");
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     fetchGuardias();
   }, []);
@@ -21,10 +22,17 @@ const GuardiasScreen = () => {
   }, [fecha]);
 
   const fetchGuardias = async () => {
-    const respuesta = await getGuardias();
-    respuesta.guardias.sort((a, b) => a.SEMANA.localeCompare(b.SEMANA));
-    setGuardias(respuesta.guardias);
-    setFilterFechas(respuesta.guardias);
+    setLoading(true);
+    try {
+      const respuesta = await getGuardias();
+      respuesta.guardias.sort((a, b) => a.SEMANA.localeCompare(b.SEMANA));
+      setGuardias(respuesta.guardias);
+      setFilterFechas(respuesta.guardias);
+    } catch (error) {
+      console.error("Error fetching guardias:", error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const SearchFecha = () => {
@@ -65,34 +73,40 @@ const GuardiasScreen = () => {
         </div>
       </div>
       <div className="row">
-        <div className="col ">
-          {filterFechas.length > 0 ? (
-            filterFechas.map((guardia) => (
-              <div className="card mb-3" key={guardia._id}>
-                <div className="card-header">Semana: {guardia.SEMANA}</div>
-                <div className="card-body">
-                  <h5 className="card-title">
-                    Asignado: {guardia.ASIGNADO.nombre}
-                  </h5>
-                  <p className="card-text">
-                    Contacto:{" "}
-                    <a
-                      href={`https://wa.me/${guardia.ASIGNADO.contacto}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {guardia.ASIGNADO.contacto}
-                    </a>
-                  </p>
+        {loading ? (
+          <div className="col d-flex justify-content-center align-items-center">
+            <h3>Cargando...</h3>
+          </div>
+        ) : (
+          <div className="col ">
+            {filterFechas.length > 0 ? (
+              filterFechas.map((guardia) => (
+                <div className="card mb-3" key={guardia._id}>
+                  <div className="card-header">Semana: {guardia.SEMANA}</div>
+                  <div className="card-body">
+                    <h5 className="card-title">
+                      Asignado: {guardia.ASIGNADO.nombre}
+                    </h5>
+                    <p className="card-text">
+                      Contacto:{" "}
+                      <a
+                        href={`https://wa.me/${guardia.ASIGNADO.contacto}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {guardia.ASIGNADO.contacto}
+                      </a>
+                    </p>
+                  </div>
                 </div>
+              ))
+            ) : (
+              <div className="alert alert-info" role="alert">
+                No hay guardias asignadas.
               </div>
-            ))
-          ) : (
-            <div className="alert alert-info" role="alert">
-              No hay guardias asignadas.
-            </div>
-          )}
-        </div>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
