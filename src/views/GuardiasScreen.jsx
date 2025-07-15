@@ -1,0 +1,115 @@
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { getGuardias } from "../helpers/guardiasFetch";
+import useStore from "../store/store";
+
+const GuardiasScreen = () => {
+  const user = useStore((state) => state.user);
+  const [guardias, setGuardias] = useState([]);
+  const [filterFechas, setFilterFechas] = useState([]);
+  const [fecha, setFecha] = useState("");
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    fetchGuardias();
+  }, []);
+
+  useEffect(() => {
+    if (fecha) {
+      SearchFecha();
+    } else {
+      setFilterFechas(guardias);
+    }
+  }, [fecha]);
+
+  const fetchGuardias = async () => {
+    setLoading(true);
+    try {
+      const respuesta = await getGuardias();
+      respuesta.guardias.sort((a, b) => a.SEMANA.localeCompare(b.SEMANA));
+      setGuardias(respuesta.guardias);
+      setFilterFechas(respuesta.guardias);
+    } catch (error) {
+      console.error("Error fetching guardias:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const SearchFecha = () => {
+    const filteredGuardias = guardias.filter((guardia) =>
+      guardia.SEMANA.includes(fecha)
+    );
+    setFilterFechas(filteredGuardias);
+  };
+
+  return (
+    <div className="container">
+      <div className="row mt-5">
+        <div className="col">
+          <h1>Guardias </h1>
+        </div>
+      </div>
+      {user?.rol === "ADMIN_ROLE" && (
+        <div className="row">
+          <div className="col mb-2">
+            <Link to="/admin/guardias" className="btn btn-primary">
+              Ir a Administración de Guardias
+            </Link>
+          </div>
+        </div>
+      )}
+      <div className="row my-3">
+        <div className="col">
+          <form>
+            <input
+              type="month"
+              name="fecha"
+              id="fecha"
+              className="form-control"
+              value={fecha}
+              onChange={(e) => setFecha(e.target.value)}
+            />
+          </form>
+        </div>
+      </div>
+      <div className="row">
+        {loading ? (
+          <div className="col d-flex justify-content-center align-items-center">
+            <h3>Cargando...</h3>
+          </div>
+        ) : (
+          <div className="col ">
+            {filterFechas.length > 0 ? (
+              filterFechas.map((guardia) => (
+                <div className="card mb-3" key={guardia._id}>
+                  <div className="card-header">Semana: {guardia.SEMANA}</div>
+                  <div className="card-body">
+                    <h5 className="card-title">
+                      Asignado: {guardia.ASIGNADO.nombre}
+                    </h5>
+                    <p className="card-text">
+                      Contacto:{" "}
+                      <a
+                        href={`https://wa.me/${guardia.ASIGNADO.contacto}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {guardia.ASIGNADO.contacto}
+                      </a>
+                    </p>
+                  </div>
+                </div>
+              ))
+            ) : (
+              <div className="alert alert-info" role="alert">
+                No hay guardias asignadas.
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default GuardiasScreen;

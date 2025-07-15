@@ -3,6 +3,10 @@ body{
   color: #e1e2e6ff;
 }
 
+.menu-ceh{
+  background-color: #22262eff;
+}
+
 .title-principal{
   font-size: 3.5rem;
 }
@@ -10,3 +14,13 @@ body{
 .card-ceh{
   border-color: #e1e2e6ff ;
 }
+
+.card-user{
+  & img{
+    width: 50%;
+  }
+   
+}
+a{
+    text-decoration: none;
+  }
