@@ -1,26 +1,52 @@
-body{
-  background-color:#22262eff;
+body {
+  background-color: #22262eff;
   color: #e1e2e6ff;
 }
 
-.menu-ceh{
+.menu-ceh {
   background-color: #22262eff;
 }
 
-.title-principal{
+.title-principal {
   font-size: 3.5rem;
 }
 
-.card-ceh{
-  border-color: #e1e2e6ff ;
+.card-ceh {
+  border-color: #e1e2e6ff;
 }
 
-.card-user{
-  & img{
+.card-user {
+  & img {
     width: 50%;
   }
-   
 }
-a{
-    text-decoration: none;
+.card-hospital {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+a {
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .card-user {
+    & img {
+      width: 100%;
+    }
   }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 800px;
+  }
+  .title-principal {
+    font-size: 4rem;
+  }
+
+  #menu-app {
+    font-size: 1.3rem;
+  }
+}

@@ -4,9 +4,9 @@ const CardHospitalApp = ({ hospital }) => {
   const { HOSPITALES, CEH, GVP } = hospital; // Destructure hospital properties as needed
 
   return (
-    <div className="card">
+    <div className="card h-100">
       <div className="card-header">{HOSPITALES}</div>
-      <div className="card-body">
+      <div className="card-body card-hospital">
         <h5 className="card-title">{CEH?.nombre}</h5>
         <p className="card-text">
           <b>GVP: </b>
