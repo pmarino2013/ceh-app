@@ -18,7 +18,7 @@ const MenuApp = () => {
         <Offcanvas.Header closeButton>
           <Offcanvas.Title className="title-principal">CEH</Offcanvas.Title>
         </Offcanvas.Header>
-        <Offcanvas.Body>
+        <Offcanvas.Body id="menu-app">
           <ul>
             <li>
               <Link className="nav-link" to="/" onClick={() => setShow(false)}>

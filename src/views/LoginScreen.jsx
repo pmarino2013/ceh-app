@@ -40,7 +40,7 @@ const LoginScreen = () => {
   return (
     <div className="container">
       <div className="row vh-100 justify-content-center align-items-center">
-        <div className="col">
+        <div className="col-12 col-md-6 col-lg-8 col-xl-4">
           <div className="mb-3 text-center">
             <h1 className="title-principal ">CEH</h1>
             <small>Tucumán</small>

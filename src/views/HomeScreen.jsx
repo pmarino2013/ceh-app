@@ -31,11 +31,11 @@ const HomeScreen = () => {
           <h1 className="title-principal">CEH</h1>
         </div>
       </div>
-      <div className="row row-cols-2 row-cols-md-3 g-3">
+      <div className="row row-cols-2 row-cols-md-2 row-cols-lg-2 g-3">
         <div className="col">
           <Link to="/usuarios" className="text-decoration-none">
             <div className="card card-ceh text-bg-dark mb-3">
-              <div className="card-header">Usuarios</div>
+              <div className="card-header">USUARIOS</div>
               <div className="card-body text-center mb-3">
                 <i className="fa fa-users fa-5x" aria-hidden="true"></i>
               </div>
@@ -53,12 +53,14 @@ const HomeScreen = () => {
           </Link>
         </div>
         <div className="col">
-          <div className="card card-ceh text-bg-dark mb-3">
-            <div className="card-header">HOSPITALES</div>
-            <div className="card-body text-center mb-3">
-              <i className="fa fa-hospital-o fa-5x" aria-hidden="true"></i>
+          <Link to="/hospitales" className="text-decoration-none">
+            <div className="card card-ceh text-bg-dark mb-3">
+              <div className="card-header">HOSPITALES</div>
+              <div className="card-body text-center mb-3">
+                <i className="fa fa-hospital-o fa-5x" aria-hidden="true"></i>
+              </div>
             </div>
-          </div>
+          </Link>
         </div>
         <div className="col">
           <div className="card card-ceh text-bg-dark mb-3">

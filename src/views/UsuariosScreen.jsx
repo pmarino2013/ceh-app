@@ -22,7 +22,7 @@ const UsuariosScreen = () => {
   };
   return (
     <div className="container">
-      <div className="row text-center pt-3">
+      <div className="row mt-3 text-center pt-3">
         <div className="col">
           <h1 className="title-principal">CEH</h1>
           <small>Usuarios</small>
