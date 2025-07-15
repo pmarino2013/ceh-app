@@ -53,12 +53,14 @@ const HomeScreen = () => {
           </Link>
         </div>
         <div className="col">
-          <div className="card card-ceh text-bg-dark mb-3">
-            <div className="card-header">HOSPITALES</div>
-            <div className="card-body text-center mb-3">
-              <i className="fa fa-hospital-o fa-5x" aria-hidden="true"></i>
+          <Link to="/hospitales" className="text-decoration-none">
+            <div className="card card-ceh text-bg-dark mb-3">
+              <div className="card-header">HOSPITALES</div>
+              <div className="card-body text-center mb-3">
+                <i className="fa fa-hospital-o fa-5x" aria-hidden="true"></i>
+              </div>
             </div>
-          </div>
+          </Link>
         </div>
         <div className="col">
           <div className="card card-ceh text-bg-dark mb-3">
