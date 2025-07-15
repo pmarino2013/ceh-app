@@ -44,22 +44,24 @@ const GuardiasScreen = () => {
 
   return (
     <div className="container">
-      <div className="row mt-5">
-        <div className="col">
+      <div className="row  mt-5">
+        <div className="col-12 text-md-center">
           <h1>Guardias </h1>
         </div>
       </div>
       {user?.rol === "ADMIN_ROLE" && (
-        <div className="row">
-          <div className="col mb-2">
-            <Link to="/admin/guardias" className="btn btn-primary">
-              Ir a Administración de Guardias
-            </Link>
+        <div className="row  ">
+          <div className="col-12 col-md-6 offset-md-3  mb-2">
+            <div className="d-md-grid">
+              <Link to="/admin/guardias" className="btn btn-primary">
+                Ir a Administración de Guardias
+              </Link>
+            </div>
           </div>
         </div>
       )}
-      <div className="row my-3">
-        <div className="col">
+      <div className="row  my-3">
+        <div className="col-12 col-md-6 offset-md-3">
           <form>
             <input
               type="month"
@@ -72,13 +74,13 @@ const GuardiasScreen = () => {
           </form>
         </div>
       </div>
-      <div className="row">
+      <div className="row ">
         {loading ? (
           <div className="col d-flex justify-content-center align-items-center">
             <h3>Cargando...</h3>
           </div>
         ) : (
-          <div className="col ">
+          <div className="col-12 col-md-6  offset-md-3">
             {filterFechas.length > 0 ? (
               filterFechas.map((guardia) => (
                 <div className="card mb-3" key={guardia._id}>
