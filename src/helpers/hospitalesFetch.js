@@ -1,4 +1,5 @@
-const url = "http://localhost:3000/api/hospitales";
+// const url = "http://localhost:3000/api/hospitales";
+const url = "https://webserver-api.vercel.app/api/hospitales"; // Update with your actual API URL
 
 const getHospitales = async () => {
   const token = JSON.parse(localStorage.getItem("token")) || null;

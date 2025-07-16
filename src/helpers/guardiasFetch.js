@@ -1,4 +1,5 @@
-const url = "http://localhost:3000/api/guardias";
+// const url = "http://localhost:3000/api/guardias";
+const url = "https://webserver-api.vercel.app/api/guardias"; // Update with your actual API URL
 const getGuardias = async () => {
   const token = JSON.parse(localStorage.getItem("token")) || null;
   try {
