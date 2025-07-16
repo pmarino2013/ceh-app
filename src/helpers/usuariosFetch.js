@@ -1,4 +1,6 @@
-const url = "http://localhost:3000/api/usuarios";
+// const url = "http://localhost:3000/api/usuarios";
+
+const url = "https://webserver-api.vercel.app/api/usuarios"; // Update with your actual API URL
 const getUsuarios = async () => {
   const token = JSON.parse(localStorage.getItem("token")) || null;
   try {
