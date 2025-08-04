@@ -3,6 +3,8 @@ import { logIn } from "../helpers/loginAuth";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useStore from "../store/store";
+
+import logo from "../../public/logo_ceh.jpeg";
 const LoginScreen = () => {
   const navigate = useNavigate();
   const {
@@ -42,7 +44,10 @@ const LoginScreen = () => {
       <div className="row vh-100 justify-content-center align-items-center">
         <div className="col-12 col-md-6 col-lg-8 ">
           <div className="mb-3 text-center">
-            <h1 className="title-principal ">CEH</h1>
+            <div className="d-flex justify-content-center align-items-center gap-2">
+              <img className="logo" src={logo} alt="logo" />
+              <h1 className="title-principal ">CEH</h1>
+            </div>
             <small>Tucumán</small>
           </div>
           <div className="card p-4 card-ceh text-bg-dark">
