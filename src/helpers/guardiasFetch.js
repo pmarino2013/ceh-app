@@ -3,7 +3,7 @@ const url = "https://webserver-api.vercel.app/api/guardias"; // Update with your
 const getGuardias = async () => {
   const token = JSON.parse(localStorage.getItem("token")) || null;
   try {
-    const resp = await fetch(url + "?limite=20", {
+    const resp = await fetch(url, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
