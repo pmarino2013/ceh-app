@@ -3,6 +3,11 @@ body {
   color: #e1e2e6ff;
 }
 
+.logo {
+  width: 50px;
+  border-radius: 10px;
+}
+
 .menu-ceh {
   background-color: #22262eff;
 }
