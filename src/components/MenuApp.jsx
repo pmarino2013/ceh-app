@@ -1,11 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { documentos } from "../data/documentos";
+import { getDocumentos } from "../helpers/documentosFetch";
 import { recursos } from "../data/información";
 import Offcanvas from "react-bootstrap/Offcanvas";
 
 const MenuApp = () => {
   const [show, setShow] = useState(false);
+  const [docs, setDocs] = useState([]);
+
+  useEffect(() => {
+    traerDataDocumentos();
+  }, []);
+
+  const traerDataDocumentos = async () => {
+    const { documentos } = await getDocumentos();
+    setDocs(documentos);
+  };
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -54,40 +64,48 @@ const MenuApp = () => {
                 Hospitales
               </Link>
             </li>
-            <li class="dropdown">
+            <li className="dropdown">
               <a
                 href="#"
-                class="nav-link dropdown-toggle"
+                className="nav-link dropdown-toggle"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                <i class="fa fa-medkit" aria-hidden="true"></i> Información
+                <i className="fa fa-medkit" aria-hidden="true"></i> Información
                 médica
               </a>
-              <ul class="dropdown-menu">
+              <ul className="dropdown-menu">
                 {recursos.map((info) => (
                   <li key={info.id}>
-                    <a class="dropdown-item" href={info.url} target="_blank">
+                    <a
+                      className="dropdown-item"
+                      href={info.url}
+                      target="_blank"
+                    >
                       {info.texto}
                     </a>
                   </li>
                 ))}
               </ul>
             </li>
-            <li class="dropdown">
+            <li className="dropdown">
               <a
                 href="#"
-                class="nav-link dropdown-toggle"
+                className="nav-link dropdown-toggle"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                <i class="fa fa-file-text-o" aria-hidden="true"></i> Documentos
-                para pacientes
+                <i className="fa fa-file-text-o" aria-hidden="true"></i>{" "}
+                Documentos para pacientes
               </a>
-              <ul class="dropdown-menu">
-                {documentos.map((doc) => (
-                  <li key={doc.id}>
-                    <a class="dropdown-item" href={doc.enlace} target="_blank">
+              <ul className="dropdown-menu">
+                {docs.map((doc) => (
+                  <li key={doc._id}>
+                    <a
+                      className="dropdown-item"
+                      href={doc.enlace}
+                      target="_blank"
+                    >
                       {doc.documento}
                     </a>
                   </li>
