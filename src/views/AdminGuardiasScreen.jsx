@@ -83,6 +83,20 @@ const AdminGuardiasScreen = () => {
                 </div>
               )}
             </div>
+            <div className="mb-3">
+              <label htmlFor="auxiliar" className="form-label">
+                Auxiliar
+              </label>
+
+              <select {...register("AUXILIAR")} className="form-select">
+                <option value="">Seleccione un auxiliar</option>
+                {usuarios.map((usuario) => (
+                  <option key={usuario._id} value={usuario._id}>
+                    {usuario.nombre}
+                  </option>
+                ))}
+              </select>
+            </div>
 
             <div className="d-grid mt-4">
               <button type="submit" className="btn btn-outline-light">
