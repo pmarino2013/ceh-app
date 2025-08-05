@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getGuardias } from "../helpers/guardiasFetch";
+import { sendEmail, convertirFecha } from "../helpers/emailJs";
 import useStore from "../store/store";
 
 const GuardiasScreen = () => {
@@ -9,6 +10,7 @@ const GuardiasScreen = () => {
   const [filterFechas, setFilterFechas] = useState([]);
   const [fecha, setFecha] = useState("");
   const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     fetchGuardias();
   }, []);
@@ -84,12 +86,14 @@ const GuardiasScreen = () => {
             {filterFechas.length > 0 ? (
               filterFechas.map((guardia) => (
                 <div className="card mb-3" key={guardia._id}>
-                  <div className="card-header">Semana: {guardia.SEMANA}</div>
+                  <div className="card-header">
+                    Semana: {convertirFecha(guardia.SEMANA)}
+                  </div>
                   <div className="card-body">
                     <h5 className="card-title">
                       Asignado: {guardia.ASIGNADO.nombre}
                     </h5>
-                    <p className="card-text">
+                    <p className="card-text m-0">
                       Contacto:{" "}
                       <a
                         href={`https://wa.me/${guardia.ASIGNADO.contacto}`}
@@ -99,6 +103,20 @@ const GuardiasScreen = () => {
                         {guardia.ASIGNADO.contacto}
                       </a>
                     </p>
+                    {user?.rol === "ADMIN_ROLE" && (
+                      <div className="d-flex justify-content-end mb-2  ">
+                        <button
+                          className="btn btn-primary"
+                          onClick={() => sendEmail(guardia)}
+                        >
+                          <i
+                            className="fa fa-envelope-o"
+                            aria-hidden="true"
+                          ></i>
+                        </button>
+                      </div>
+                    )}
+
                     {guardia?.AUXILIAR && (
                       <>
                         <h5 className="card-title">

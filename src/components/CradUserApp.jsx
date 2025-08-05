@@ -14,7 +14,7 @@ const CradUserApp = ({ usuario }) => {
         <div className="col-12 col-md-8">
           <div className="card-body text-center">
             <h5 className="card-title">{usuario.nombre}</h5>
-            <p className="card-text">{usuario.email}</p>
+            <small className="card-text">{usuario.email}</small>
             <p className="card-text">
               <a
                 href={`https://wa.me/${usuario.contacto}`}
