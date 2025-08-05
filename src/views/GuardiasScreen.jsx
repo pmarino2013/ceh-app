@@ -99,6 +99,23 @@ const GuardiasScreen = () => {
                         {guardia.ASIGNADO.contacto}
                       </a>
                     </p>
+                    {guardia?.AUXILIAR && (
+                      <>
+                        <h5 className="card-title">
+                          Auxiliar: {guardia.AUXILIAR.nombre}
+                        </h5>
+                        <p className="card-text">
+                          Contacto:{" "}
+                          <a
+                            href={`https://wa.me/${guardia.AUXILIAR.contacto}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {guardia.AUXILIAR.contacto}
+                          </a>
+                        </p>
+                      </>
+                    )}
                   </div>
                 </div>
               ))
