@@ -10,12 +10,12 @@ export function convertirFecha(formatoISO) {
   return `${dia}-${mes}-${anio}`;
 }
 
-export const sendEmail = (user, semana) => {
-  const fecha = convertirFecha(semana);
+export const sendEmail = (guardia) => {
+  const fecha = convertirFecha(guardia.SEMANA);
   const datos = {
-    email: user.email,
+    email: guardia.ASIGNADO.email,
     // email: "pmarino2013@gmail.com",
-    message: `Hola amigo!\nTenés asignada una guardia para la semana del ${fecha}.\nRevisa por favor la app y cualquier consulta puedes escribir al presidente.\nMuchas gracias por tu fiel servicio.`,
+    message: `Hola ${guardia.ASIGNADO.nombre}!\nTenés asignada una guardia para la semana del ${fecha}.\nRevisa por favor la app y cualquier consulta puedes escribir al presidente.\nMuchas gracias por tu fiel servicio.`,
     name: "CEH Tucumán",
   };
   emailjs
@@ -24,10 +24,10 @@ export const sendEmail = (user, semana) => {
     })
     .then(
       () => {
-        console.log("SUCCESS!");
+        alert("Mensaje enviado!!");
       },
       (error) => {
-        console.log("FAILED...", error.text);
+        alert("FAILED...", error.text);
       }
     );
 };

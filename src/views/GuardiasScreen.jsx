@@ -10,6 +10,7 @@ const GuardiasScreen = () => {
   const [filterFechas, setFilterFechas] = useState([]);
   const [fecha, setFecha] = useState("");
   const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     fetchGuardias();
   }, []);
@@ -106,7 +107,7 @@ const GuardiasScreen = () => {
                       <div className="d-flex justify-content-end mb-2  ">
                         <button
                           className="btn btn-primary"
-                          onClick={() => sendEmail(user, guardia.SEMANA)}
+                          onClick={() => sendEmail(guardia)}
                         >
                           <i
                             className="fa fa-envelope-o"
