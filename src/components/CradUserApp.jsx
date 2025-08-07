@@ -1,8 +1,6 @@
-import React from "react";
-
 const CradUserApp = ({ usuario }) => {
   return (
-    <div className="card mb-3 card-user">
+    <div className="card mb-3 card-user h-100">
       <div className="row g-0">
         <div className="col-12 col-md-4 text-center">
           <img
@@ -12,7 +10,7 @@ const CradUserApp = ({ usuario }) => {
           />
         </div>
         <div className="col-12 col-md-8">
-          <div className="card-body text-center">
+          <div className="card-body text-center ">
             <h5 className="card-title">{usuario.nombre}</h5>
             <small className="card-text">{usuario.email}</small>
             <p className="card-text">
@@ -21,13 +19,13 @@ const CradUserApp = ({ usuario }) => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <small className="text-body-secondary">
+                <span className="text-body-secondary">
                   <i
                     className="fa fa-whatsapp text-success"
                     aria-hidden="true"
                   ></i>{" "}
                   {usuario.contacto}
-                </small>
+                </span>
               </a>
             </p>
           </div>
