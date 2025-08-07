@@ -24,10 +24,10 @@ export const sendEmail = (guardia) => {
     })
     .then(
       () => {
-        alert("Mensaje enviado!!");
+        return "ok";
       },
       (error) => {
-        alert("FAILED...", error.text);
+        return "FAILED...", error.text;
       }
     );
 };
