@@ -29,9 +29,4 @@ export const recursos = [
     texto: "Kairos Argentina",
     url: "http://ar.kairosweb.com/",
   },
-  {
-    id: 7,
-    texto: "Precios de remedios",
-    url: "https://www.preciosderemedios.com.ar/",
-  },
 ];

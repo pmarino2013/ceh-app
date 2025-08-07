@@ -8,6 +8,10 @@ body {
   border-radius: 10px;
 }
 
+#menu-app {
+  font-size: 1.2rem;
+}
+
 .menu-ceh {
   background-color: #22262eff;
 }
