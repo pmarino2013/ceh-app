@@ -18,7 +18,6 @@ const UsuariosScreen = () => {
       setUsuarios(datos.usuarios);
       setMensaje("");
     }
-    console.log(datos);
   };
   return (
     <div className="container">
@@ -33,14 +32,29 @@ const UsuariosScreen = () => {
           {mensaje}
         </div>
       )}
-      <div className="row row-cols-1 row-cols-md-2 g-4 mt-2">
-        {usuarios.length >= 0 &&
-          usuarios.map((usuario, index) => (
-            <div className="col" key={index}>
+
+      {usuarios.length > 0 ? (
+        <div className="row row-cols-1 row-cols-md-2 g-4 mt-2">
+          {usuarios.map((usuario) => (
+            <div className="col" key={usuario._id}>
               <CradUserApp usuario={usuario} />
             </div>
           ))}
-      </div>
+          {/* usuarios.map((usuario, index) => (
+          <div className="col" key={index}>
+            <CradUserApp usuario={usuario} />
+          </div>
+          )) */}
+        </div>
+      ) : (
+        <div className="row">
+          <div className="col-12 text-center my-5">
+            <div className="spinner-border" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
