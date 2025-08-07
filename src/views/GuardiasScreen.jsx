@@ -79,7 +79,9 @@ const GuardiasScreen = () => {
       <div className="row ">
         {loading ? (
           <div className="col d-flex justify-content-center align-items-center">
-            <h3>Cargando...</h3>
+            <div className="spinner-border" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>
           </div>
         ) : (
           <div className="col-12 col-md-6  offset-md-3">
