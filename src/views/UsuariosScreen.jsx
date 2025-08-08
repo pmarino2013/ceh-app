@@ -61,7 +61,7 @@ const UsuariosScreen = () => {
             setInputValue={setInputValue}
           />
           {usuariosFilter.length > 0 ? (
-            <div className="row row-cols-1 row-cols-md-2 g-4 mt-2">
+            <div className="row row-cols-1 row-cols-md-2 g-4 my-2">
               {usuariosFilter.map((usuario) => (
                 <div className="col" key={usuario._id}>
                   <CradUserApp usuario={usuario} />
