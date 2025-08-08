@@ -5,7 +5,7 @@ const CradUserApp = ({ usuario }) => {
         <div className="col-12 col-md-4 text-center">
           <img
             src={usuario.img}
-            className="img-fluid rounded-start"
+            className="img-fluid rounded m-2"
             alt={usuario.nombre}
           />
         </div>
