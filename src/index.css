@@ -37,6 +37,17 @@ body {
   justify-content: space-between;
   height: 100%;
 }
+
+.card-guardia {
+  position: relative;
+  & .overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.632);
+    color: white;
+    border-radius: 5px;
+  }
+}
 a {
   text-decoration: none;
 }
