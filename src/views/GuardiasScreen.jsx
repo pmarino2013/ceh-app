@@ -86,7 +86,9 @@ const GuardiasScreen = () => {
     <div className="container">
       <div className="row  mt-5">
         <div className="col-12 text-md-center">
-          <h1>Guardias </h1>
+          <h1 className="title-principal">CEH</h1>
+          <small>Tucumán</small>
+          <h3>Guardias</h3>
         </div>
       </div>
       {user?.rol === "ADMIN_ROLE" && (
