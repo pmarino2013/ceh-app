@@ -69,21 +69,13 @@ const CardGuardiaApp = ({ guardia, user }) => {
             {guardia.ASIGNADO.contacto}
           </a>
         </p>
-        {user?.rol === "ADMIN_ROLE" && (
-          <div className="d-flex justify-content-end mb-2  ">
-            <button
-              className="btn btn-primary"
-              onClick={() => sendEmail(guardia)}
-              disabled={respMail.loading}
-            >
-              <i className="fa fa-envelope-o" aria-hidden="true"></i>
-            </button>
-          </div>
-        )}
 
         {guardia?.AUXILIAR && (
           <>
-            <h5 className="card-title">Auxiliar: {guardia.AUXILIAR.nombre}</h5>
+            <hr />
+            <h5 className="card-title mt-2">
+              Auxiliar: {guardia.AUXILIAR.nombre}
+            </h5>
             <p className="card-text">
               Contacto:{" "}
               <a
@@ -95,6 +87,18 @@ const CardGuardiaApp = ({ guardia, user }) => {
               </a>
             </p>
           </>
+        )}
+        {user?.rol === "ADMIN_ROLE" && (
+          <div className="d-flex justify-content-end mb-2  ">
+            <button
+              className="btn btn-primary"
+              onClick={() => sendEmail(guardia)}
+              disabled={respMail.loading}
+            >
+              <i className="fa fa-envelope-o" aria-hidden="true"></i>{" "}
+              Recordatorio
+            </button>
+          </div>
         )}
       </div>
       {show && (
