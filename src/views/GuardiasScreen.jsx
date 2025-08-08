@@ -47,7 +47,7 @@ const GuardiasScreen = () => {
   return (
     <div className="container">
       <div className="row  mt-5">
-        <div className="col-12 text-md-center">
+        <div className="col-12 text-center">
           <h1 className="title-principal">CEH</h1>
           <small>Tucumán</small>
           <h3>Guardias</h3>
@@ -56,7 +56,7 @@ const GuardiasScreen = () => {
       {user?.rol === "ADMIN_ROLE" && (
         <div className="row  ">
           <div className="col-12 col-md-6 offset-md-3  mb-2">
-            <div className="d-md-grid">
+            <div className="d-grid">
               <Link to="/admin/guardias" className="btn btn-primary">
                 Ir a Administración de Guardias
               </Link>
