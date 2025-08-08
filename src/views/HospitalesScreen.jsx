@@ -58,6 +58,7 @@ const HospitalesScreen = () => {
       <div className="row my-2 text-center pt-3">
         <div className="col">
           <h1 className="title-principal">CEH</h1>
+          <small>Tucumán</small>
         </div>
       </div>
       {loading ? (

@@ -29,6 +29,7 @@ const HomeScreen = () => {
       <div className="row">
         <div className="col text-center my-5">
           <h1 className="title-principal">CEH</h1>
+          <small>Tucumán</small>
         </div>
       </div>
       <div className="row row-cols-2 row-cols-md-2 row-cols-lg-2 g-3">
